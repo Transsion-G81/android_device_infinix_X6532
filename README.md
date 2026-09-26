@@ -1,0 +1,1 @@
+# Android Device tree for the Infinix Hot 50i

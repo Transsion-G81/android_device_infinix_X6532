@@ -1,0 +1,65 @@
+//
+// Copyright (C) 2022-2025 The LineageOS Project
+// Copyright (C) 2023 StatiXOS
+// SPDX-License-Identifier: Apache-2.0
+//
+
+cc_prebuilt_library_shared {
+    name: "libssl-v33",
+    vendor: true,
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: ["libssl-v33.so"],
+        },
+    },
+    compile_multilib: "64",
+    check_elf_files: false,
+}
+
+cc_prebuilt_library_shared {
+    name: "libbacktrace",
+    vendor: true,
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: ["libbacktrace.so"],
+        },
+    },
+    compile_multilib: "32",
+    check_elf_files: false,
+}
+
+cc_prebuilt_library_shared {
+    name: "libunwindstack-v32",
+    vendor: true,
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: ["libunwindstack-v32.so"],
+        },
+    },
+    compile_multilib: "32",
+    check_elf_files: false,
+}
+
+cc_prebuilt_library_shared {
+    name: "libutilscallstack-v32",
+    vendor: true,
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: ["libutilscallstack-v32.so"],
+        },
+    },
+    compile_multilib: "32",
+    check_elf_files: false,
+}
