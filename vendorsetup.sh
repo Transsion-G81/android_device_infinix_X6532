@@ -9,12 +9,19 @@ fi
 
 echo "Patching $FILE ..."
 
-# 1. Add import if missing
+# 1. Add imports if missing
 if ! grep -q "android.content.ContentResolver" "$FILE"; then
     sed -i '/import android.util.Log;/a import android.content.ContentResolver;' "$FILE"
-    echo "Import added."
+    echo "ContentResolver import added."
 else
-    echo "Import already exists, skipping."
+    echo "ContentResolver import already exists, skipping."
+fi
+
+if ! grep -q "android.provider.Settings" "$FILE"; then
+    sed -i '/import android.util.Log;/a import android.provider.Settings;' "$FILE"
+    echo "Settings import added."
+else
+    echo "Settings import already exists, skipping."
 fi
 
 # 2. Insert ContentResolver block after apply(mCurrentState); if not present
