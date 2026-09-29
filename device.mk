@@ -358,6 +358,14 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(LOCAL_PATH)/configs/wifi/,$(TARGET_COPY_OUT_VENDOR)/etc/wifi)
 
+# Debugging
+ifeq ($(WITH_XGSI_LOGS),true)
+    PRODUCT_COPY_FILES += \
+        $(LOCAL_PATH)/logging/init.xgsi.rc:$(TARGET_COPY_OUT_SYSTEM)/etc/init/init.xgsi.rc \
+        $(LOCAL_PATH)/logging/xgsi-bootlog.sh:$(TARGET_COPY_OUT_SYSTEM)/etc/init/xgsi-bootlog.sh \
+        $(LOCAL_PATH)/logging/xgsi-dmesg.sh:$(TARGET_COPY_OUT_SYSTEM)/etc/init/xgsi-dmesg.sh
+endif
+
 # Inherit the proprietary files
 $(call inherit-product, vendor/infinix/X6532/X6532-vendor.mk)
 
