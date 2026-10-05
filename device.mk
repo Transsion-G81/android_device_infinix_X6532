@@ -98,7 +98,7 @@ PRODUCT_PACKAGES += \
 # Display
 PRODUCT_PACKAGES += \
     android.hardware.graphics.composer@2.1-service \
-    android.hardware.memtrack-service.mediatek-mali
+    android.hardware.memtrack-service.mediatek
 
 # DRM
 PRODUCT_PACKAGES += \
@@ -188,7 +188,7 @@ PRODUCT_SYSTEM_PROPERTIES += \
     ro.product.property_source_order=odm,vendor,product,system_ext,system
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/import.prop:$(TARGET_COPY_OUT_ODM)/etc/import.prop
+    $(LOCAL_PATH)/configs/import.prop:$(TARGET_COPY_OUT_VENDOR)/etc/import.prop
 
 # Permissions
 PRODUCT_COPY_FILES += \
@@ -341,7 +341,7 @@ $(call soong_config_set_bool,mediatek_wifi_hal,use_pre_u_qpr2_struct,true)
 PRODUCT_PACKAGES += \
     android.system.wifi.keystore@1.0.vendor \
     libkeystore-wifi-hidl:64 \
-    libkeystore-engine-wifi-:64 \
+    libkeystore-engine-wifi-hidl:64 \
     libnl.vendor \
     android.hardware.wifi@1.1.vendor \
     android.hardware.wifi@1.2.vendor \
@@ -352,7 +352,7 @@ PRODUCT_PACKAGES += \
     android.hardware.wifi.supplicant@1.2.vendor \
     android.hardware.wifi.supplicant@1.3.vendor \
     android.hardware.wifi.supplicant@1.4.vendor \
-	wpa_supplicant \
+    wpa_supplicant \
     hostapd \
     libwifi-hal-wrapper:64 \
     android.hardware.wifi-service
