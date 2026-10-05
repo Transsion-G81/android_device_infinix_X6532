@@ -20,6 +20,7 @@ type vendor_sysfs_fingerprint, fs_type, sysfs_type;
 
 # GPU
 type vendor_sysfs_gpu, fs_type, sysfs_type;
+type vendor_sysfs_mali_devfreq, fs_type, sysfs_type;
 
 # Touchpanel
 type sysfs_touchpanel, sysfs_type, fs_type;
