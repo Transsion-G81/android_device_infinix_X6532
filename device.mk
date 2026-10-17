@@ -372,4 +372,4 @@ endif
 $(call inherit-product, vendor/infinix/X6532/X6532-vendor.mk)
 
 # Inherit the sign keys
-$(call inherit-product, vendor/lineage-priv/keys/keys.mk)
+PRODUCT_PACKAGES += libshim_base
