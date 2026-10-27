@@ -1,0 +1,12 @@
+## All proprietary files from this list, unless pinned and noted otherwise, are
+## from Infinix-X6532-24
+
+gz.img;AB
+lk.img;AB|84c7188452bce0d38b98311d6153d97438674f68
+logo.bin:logo.img;AB|45cd3a91aabb8b8ff9c1a0675defefbcf8b75877
+md1img.img;AB
+scp.img;AB
+spmfw.img;AB
+sspm.img;AB
+tee.img;AB
+tkv.img;AB
