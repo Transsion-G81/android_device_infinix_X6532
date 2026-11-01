@@ -14,13 +14,12 @@
     <!-- Height of the status bar -->
     <dimen name="status_bar_height_portrait">44.0dip</dimen>
     <dimen name="status_bar_height_default">44.0dip</dimen>
-    <dimen name="status_bar_height_landscape">28.0dip</dimen>    
+    <dimen name="status_bar_height_landscape">28.0dip</dimen>
+    <!-- Navigation bar and display corners: stock X6532 values. -->
+    <dimen name="navigation_bar_height">40.0dip</dimen>
+    <dimen name="navigation_bar_height_landscape">40.0dip</dimen>
+    <dimen name="rounded_corner_radius">17.0dip</dimen>
+    <dimen name="rounded_corner_radius_top">17.0dip</dimen>
+    <dimen name="rounded_corner_radius_bottom">17.0dip</dimen>
     <string name="config_dozeComponent">com.android.systemui/com.android.systemui.doze.DozeService</string>
-    <!-- Radius of the software rounded corners at the top of the display in its natural
-        orientation. If zero, the value of rounded_corner_radius is used. -->
-    <dimen name="rounded_corner_radius_bottom">68.0px</dimen>
-
-   <!-- Radius of the software rounded corners at the bottom of the display in its natural
-        orientation. If zero, the value of rounded_corner_radius is used. -->
-    <dimen name="rounded_corner_radius_top">68.0px</dimen>
 </resources>
