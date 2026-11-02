@@ -144,6 +144,8 @@
         </path>
         <!--external_speaker output-->
         <path name="ext_speaker_output" value="turnon">
+            <kctl name="aw87xxx_profile_switch_0" value="Bot_Right" />
+            <kctl name="aw87xxx_profile_switch_1" value="Top_Left" />
             <kctl name="Ext_Speaker_Amp Switch" value="1" />
             <kctl name="Headset Volume" value="3" />
         </path>
