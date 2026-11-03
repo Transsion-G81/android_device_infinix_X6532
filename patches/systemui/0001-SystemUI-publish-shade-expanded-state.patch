@@ -1,16 +1,11 @@
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: NazeXD <nazexd@users.noreply.github.com>
 Date: Tue, 3 Nov 2026 00:00:00 +0700
-Subject: [PATCH] SystemUI: publish the shade expanded state for the QS FPS handler
+Subject: [PATCH] SystemUI: publish the shade expanded state
 
-ShadeProvider (com.shade.handler) needs to know when the notification shade is
-expanded: it observes Settings.System "qs.fps.expanded" and, while the shade is
-open, drops the window blur and shortens the animation scale, restoring both
-when the shade is closed.
-
-Report the state from onShadeOrQsExpanded(), which is where the previous
-sed/awk hack in vendorsetup.sh inserted this code.  It is a real patch now
-because that approach failed silently when the surrounding method changed.
+Publish Settings.System "qs.fps.expanded" from onShadeOrQsExpanded() so
+ShadeProvider (com.shade.handler) can drop the blur and animation scale while
+the shade is open.
 
 ---
 diff --git a/packages/SystemUI/src/com/android/systemui/shade/NotificationShadeWindowControllerImpl.java b/packages/SystemUI/src/com/android/systemui/shade/NotificationShadeWindowControllerImpl.java
