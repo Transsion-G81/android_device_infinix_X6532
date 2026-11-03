@@ -1,0 +1,34 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: NazeXD <nazexd@users.noreply.github.com>
+Date: Tue, 3 Nov 2026 00:00:00 +0700
+Subject: [PATCH] SystemUI: publish the shade expanded state for the QS FPS handler
+
+ShadeProvider (com.shade.handler) needs to know when the notification shade is
+expanded: it observes Settings.System "qs.fps.expanded" and, while the shade is
+open, drops the window blur and shortens the animation scale, restoring both
+when the shade is closed.
+
+Report the state from onShadeOrQsExpanded(), which is where the previous
+sed/awk hack in vendorsetup.sh inserted this code.  It is a real patch now
+because that approach failed silently when the surrounding method changed.
+
+---
+diff --git a/packages/SystemUI/src/com/android/systemui/shade/NotificationShadeWindowControllerImpl.java b/packages/SystemUI/src/com/android/systemui/shade/NotificationShadeWindowControllerImpl.java
+--- a/packages/SystemUI/src/com/android/systemui/shade/NotificationShadeWindowControllerImpl.java
++++ b/packages/SystemUI/src/com/android/systemui/shade/NotificationShadeWindowControllerImpl.java
+@@ -261,6 +261,15 @@ public class NotificationShadeWindowControllerImpl implements NotificationShadeW
+         if (mCurrentState.shadeOrQsExpanded != isExpanded) {
+             mCurrentState.shadeOrQsExpanded = isExpanded;
+             apply(mCurrentState);
++            // Publish the shade state for the QS shade performance handler
++            // (ShadeProvider, com.shade.handler): it observes qs.fps.expanded and
++            // drops the window blur / animation scale while the shade is open.
++            try {
++                Settings.System.putInt(mContext.getContentResolver(), "qs.fps.expanded",
++                        isExpanded ? 1 : 0);
++            } catch (Exception e) {
++                Log.e(TAG, "Failed to publish qs.fps.expanded", e);
++            }
+ 
+             final IBinder token = mWindowRootView.getWindowToken();
+             if (token != null) {
