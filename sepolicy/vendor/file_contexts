@@ -37,5 +37,3 @@
 # Extcon
 /sys/devices/platform/extcon_usb/extcon/extcon0/cable.1/state                           u:object_r:sysfs_OTG_STATE_file:s0
 
-# XGSI (logging/init.xgsi-bootlog.rc)
-/data/xgsi(/.*)?                                                        u:object_r:xgsi_log_data_file:s0
