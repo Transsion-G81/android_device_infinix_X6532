@@ -50,7 +50,7 @@ AB_OTA_POSTINSTALL_CONFIG += \
 AB_OTA_POSTINSTALL_CONFIG += \
     RUN_POSTINSTALL_vendor=true \
     POSTINSTALL_PATH_vendor=bin/checkpoint_gc \
-    FILESYSTEM_TYPE_vendor=erofs \
+    FILESYSTEM_TYPE_vendor=ext4 \
     POSTINSTALL_OPTIONAL_vendor=true
 
 PRODUCT_PACKAGES += \
@@ -62,6 +62,10 @@ PRODUCT_PACKAGES += \
     android.hardware.audio@7.0-impl:32 \
     android.hardware.audio.effect@7.0-impl:32 \
     android.hardware.audio.service
+
+# AOSP pre-processing effects (AGC/AEC/NS) referenced by audio_effects.xml
+PRODUCT_PACKAGES += \
+    libaudiopreprocessing
 
 PRODUCT_PACKAGES += \
     audio.bluetooth.default:32 \
@@ -364,8 +368,19 @@ PRODUCT_COPY_FILES += \
 ifeq ($(WITH_XGSI_LOGS),true)
     PRODUCT_COPY_FILES += \
         $(LOCAL_PATH)/logging/init.xgsi-bootlog.rc:$(TARGET_COPY_OUT_SYSTEM)/etc/init/init.xgsi-bootlog.rc \
-        $(LOCAL_PATH)/logging/xgsi-bootlog.sh:$(TARGET_COPY_OUT_SYSTEM)/etc/init/xgsi-bootlog.sh \
-        $(LOCAL_PATH)/logging/xgsi-dmesg.sh:$(TARGET_COPY_OUT_SYSTEM)/etc/init/xgsi-dmesg.sh
+        $(LOCAL_PATH)/logging/xgsi-bootlog.sh:$(TARGET_COPY_OUT_SYSTEM)/etc/xgsi/xgsi-bootlog.sh \
+        $(LOCAL_PATH)/logging/xgsi-dmesg.sh:$(TARGET_COPY_OUT_SYSTEM)/etc/xgsi/xgsi-dmesg.sh
+endif
+
+# GMS variant: vanilla / gapps / microg, selected by build-all.sh --gms.  Read at
+# product-config time, so clear out/target/product/<device> when switching mode.
+ifeq ($(WITH_GAPPS),true)
+$(call inherit-product, vendor/gapps/arm64/arm64-vendor.mk)
+endif
+ifeq ($(WITH_MICROG),true)
+# keep microG's GmsCore out of the default namespace so gapps doesn't clash
+PRODUCT_SOONG_NAMESPACES += vendor/partner_gms
+$(call inherit-product, vendor/partner_gms/microg.mk)
 endif
 
 # Inherit the proprietary files

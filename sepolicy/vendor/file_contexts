@@ -36,3 +36,4 @@
 
 # Extcon
 /sys/devices/platform/extcon_usb/extcon/extcon0/cable.1/state                           u:object_r:sysfs_OTG_STATE_file:s0
+

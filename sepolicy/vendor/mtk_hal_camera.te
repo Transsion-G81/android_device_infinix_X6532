@@ -30,3 +30,7 @@ allow mtk_hal_camera property_socket:sock_file write;
 allow mtk_hal_camera hal_trancamserver_hwservice:hwservice_manager find;
 
 set_prop(mtk_hal_camera, vendor_mtk_camera_prop)
+
+# Denied on stock too; harmless probes.
+dontaudit mtk_hal_camera sysfs_dt_firmware_android:file read;
+dontaudit mtk_hal_camera block_device:dir search;

@@ -166,6 +166,8 @@ genfscon sysfs /devices/platform/1f800000.mmlsys_config/wakeup u:object_r:sysfs_
 genfscon sysfs /devices/platform/mtk_lpm/mtk_cpuidle_pm/wakeup u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/virtual/power_supply/mtk-gauge/wakeup u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/1e000000.adspsys/wakeup u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/10800000.adsp_core0/wakeup u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/19030000.vpu_core0/wakeup u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/19031000.vpu_core1/wakeup u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/1f000000.mdp/wakeup/ u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/11201000.usb0/wakeup u:object_r:sysfs_wakeup:s0
