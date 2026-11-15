@@ -280,6 +280,13 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     init.recovery.usb.rc
 
+# Recovery touch firmware (DTB sets firmware_class.path=/vendor/firmware)
+PRODUCT_COPY_FILES += \
+    vendor/infinix/X6532/proprietary/vendor/firmware/focaltech_ts_fw_01.bin:$(TARGET_COPY_OUT_RECOVERY)/root/vendor/firmware/focaltech_ts_fw_01.bin \
+    vendor/infinix/X6532/proprietary/vendor/firmware/focaltech_ts_fw_03.bin:$(TARGET_COPY_OUT_RECOVERY)/root/vendor/firmware/focaltech_ts_fw_03.bin \
+    vendor/infinix/X6532/proprietary/vendor/firmware/hdl_firmware_02.img:$(TARGET_COPY_OUT_RECOVERY)/root/vendor/firmware/hdl_firmware_02.img \
+    vendor/infinix/X6532/proprietary/vendor/firmware/novatek_ts_fw_00.bin:$(TARGET_COPY_OUT_RECOVERY)/root/vendor/firmware/novatek_ts_fw_00.bin
+
 PRODUCT_PACKAGES += \
     libsensorndkbridge:32 \
     android.hardware.sensors@1.0.vendor:32 \
