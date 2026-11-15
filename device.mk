@@ -340,7 +340,9 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     libcrypto-v33 \
     libssl-v33 \
-    libbacktrace
+    libbacktrace \
+    libunwindstack-v32 \
+    libutilscallstack-v32
 
 # vndservice
 PRODUCT_PACKAGES += \

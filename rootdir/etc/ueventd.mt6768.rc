@@ -213,3 +213,8 @@
 
 #VideoCodec
 /dev/vcu 0660 media system
+
+# Fingerprint
+/dev/focaltech_fp         0660   system     system
+/dev/fpsensor             0660   system     system
+/dev/goodix_fp            0660   system     system
