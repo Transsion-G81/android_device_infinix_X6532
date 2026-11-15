@@ -8,6 +8,7 @@ vendor/lib64/libaedv.so
 vendor/lib/hw/audio.primary.mt6768.so
 vendor/lib/hw/audio.r_submix.mt6768.so
 vendor/lib/libMtkSpeechEnh.so
+vendor/lib64/libMtkSpeechEnh.so
 vendor/lib/lib_iir.so
 vendor/lib/lib_speech_enh.so
 vendor/lib/libaudio_param_parser-vnd.so
@@ -171,6 +172,8 @@ vendor/lib64/libapusys.so
 vendor/lib64/libapusys_edma.so
 vendor/lib64/libarmnn.so
 vendor/lib64/libarmnn_ndk.mtk.vndk.so
+vendor/lib64/libcmdl.so
+vendor/lib64/libcmdl_ndk.mtk.vndk.so
 vendor/lib64/vendor.mediatek.hardware.apmonitor@2.0.so
 
 # Bluetooth
@@ -612,13 +615,13 @@ vendor/lib/mt6768/libmtk_drvb.so;SYMLINK=vendor/lib/libmtk_drvb.so
 vendor/lib64/mt6768/libmtk_drvb.so;SYMLINK=vendor/lib64/libmtk_drvb.so
 
 # Fingerprint
-vendor/bin/hw/android.hardware.biometrics.fingerprint@2.1-service
+vendor/bin/hw/android.hardware.biometrics.fingerprint@2.1-service-32
 vendor/bin/hw/vendor.focaltech.hardware.biometrics.fingerprint@1.0-service
-vendor/etc/init/android.hardware.biometrics.fingerprint@2.1-service.rc
+vendor/etc/init/android.hardware.biometrics.fingerprint@2.1-service-32.rc
 vendor/etc/init/vendor.goodix.rc 
 vendor/etc/init/vendor.fpsensor.rc
 vendor/etc/init/vendor.focaltech.hardware.biometrics.fingerprint@1.0-service.rc
-vendor/etc/vintf/manifest/android.hardware.biometrics.fingerprint@2.1-service.xml
+vendor/etc/vintf/manifest/android.hardware.biometrics.fingerprint@2.1-service-32.xml
 vendor/lib/hw/focal_fingerprint.default.so
 vendor/lib/hw/fpsensor_fingerprint.default.so
 vendor/lib/hw/gf_fingerprint.default.so
@@ -986,9 +989,6 @@ vendor/lib64/libJpgEncPipe.so
 vendor/lib64/libcapctrl.so
 vendor/lib64/libhevce_sb.ca7.android.so;DISABLE_CHECKELF
 vendor/lib64/libicd_decoder.so
-vendor/lib64/libimageio.so
-vendor/lib64/libimageio_plat_drv.so
-vendor/lib64/libimageio_plat_pipe.so
 vendor/lib64/libjpeg-alpha-oal_vendor.so
 vendor/lib64/libjpeg-alpha_vendor.so
 vendor/lib64/libvcodec_oal.so
@@ -1106,6 +1106,7 @@ vendor/lib64/libmtkconfig.so
 vendor/lib64/libmtkconfigutils.so
 vendor/lib64/libmtkcutils.so
 vendor/lib64/libmtkhardware_legacy.so
+vendor/lib64/libmtkmipc-ril.so
 vendor/lib64/libmtknetcap.so
 vendor/lib64/libmtknetutils.so
 vendor/lib64/libmtkproperty.so
@@ -1172,9 +1173,12 @@ vendor/lib64/hw/vendor.mediatek.hardware.videotelephony@1.0-impl.so
 vendor/lib64/vendor.mediatek.hardware.videotelephony@1.0.so;MODULE_SUFFIX=_vendor
 
 # Sensors
+vendor/bin/hw/android.hardware.sensors@2.0-service.multihal-mediatek
+vendor/etc/init/android.hardware.sensors@2.0-service.multihal-mediatek.rc
 vendor/lib/hw/android.hardware.sensors@2.X-subhal-mediatek.so
 vendor/lib/hw/sensors.mt6768.so
 vendor/lib/libhwm.so
+vendor/lib64/libhwm.so
 vendor/lib/libksensor.so
 vendor/lib/libsensor_custom.so
 vendor/lib/librgbwlightsensor.so
@@ -1192,3 +1196,6 @@ vendor/lib64/libwifi-hal.so:vendor/lib64/libwifi-hal-mtk.so;FIX_SONAME
 
 # WPA_SUPPLICANT
 vendor/bin/wpa_cli
+vendor/bin/hw/wpa_supplicant
+vendor/etc/init/android.hardware.wifi.supplicant-service.rc
+vendor/etc/vintf/manifest/android.hardware.wifi.supplicant.xml
