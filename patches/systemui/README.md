@@ -10,8 +10,9 @@ Settings.System.putInt(mContext.getContentResolver(), "qs.fps.expanded",
 ```
 
 ShadeProvider (`com.shade.handler`, packaged by `device.mk`) observes that setting and,
-while the shade is open, disables the blur and shortens the animation scale. No import
-change is needed - `Settings`, `Log`, `TAG` and `mContext` already exist in that class.
+while the shade is open, lowers the SurfaceFlinger display mode index (`qs.fps.limited` /
+`qs.blur.fps.limited`) and shortens `animator_duration_scale` to `0.85` when `qs.limited=1`.
+No import change is needed - `Settings`, `Log`, `TAG` and `mContext` already exist in that class.
 
 Applied by `vendorsetup.sh` on every `envsetup.sh` run, once, idempotently; opt out with
 `PATCH_SHADE=0`. By hand, from `frameworks/base`:
