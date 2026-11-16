@@ -19,6 +19,14 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/generic_ramdisk.mk)
 # Inherit common MediaTek IMS
 $(call inherit-product, vendor/mediatek/ims/ims.mk)
 
+PRODUCT_PRODUCT_PROPERTIES += \
+    persist.dbg.volte_avail_ovr=1 \
+    persist.dbg.vt_avail_ovr=1 \
+    persist.dbg.wfc_avail_ovr=1
+
+PRODUCT_PACKAGES += \
+    libaudioclient_shim
+
 ## Inherit from virtual A/B, most specific first
 $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota/launch_with_vendor_ramdisk.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota/vabc_features.mk)
@@ -179,6 +187,7 @@ PRODUCT_PACKAGES += \
     FrameworksResOverlay_X6532 \
     SystemUIOverlay_X6532 \
     SettingsResOverlay_X6532 \
+    TelephonyOverlay_X6532 \
     TetheringResOverlay_X6532 \
     WifiResOverlay_X6532
 
