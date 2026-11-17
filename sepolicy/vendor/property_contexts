@@ -13,6 +13,7 @@ vendor.fp.center.X.offset                      u:object_r:vendor_fingerprint_pro
 ro.vendor.tran.fp.support                       u:object_r:vendor_mtk_default_prop:s0
 persist.vendor.goodix.dump_data                u:object_r:vendor_fingerprint_prop:s0
 persist.vendor.sys.fp.dump_data                u:object_r:vendor_fingerprint_prop:s0
+persist.vendor.sys.fp.dump_bigdata_data        u:object_r:vendor_fingerprint_prop:s0
 persist.vendor.sys.fp.fod.location.X_Y         u:object_r:vendor_fingerprint_prop:s0
 persist.vendor.sys.fp.fod.size.width_height    u:object_r:vendor_fingerprint_prop:s0
 persist.vendor.gf.debug.dump_talog_data        u:object_r:vendor_fingerprint_prop:s0
