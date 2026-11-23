@@ -18,7 +18,7 @@ PRODUCT_NAME := lineage_X6532
 PRODUCT_DEVICE := X6532
 PRODUCT_MANUFACTURER := Infinix
 PRODUCT_BRAND := Infinix
-PRODUCT_MODEL := Smart 9
+PRODUCT_MODEL := Infinix Smart 9
 
 PRODUCT_SYSTEM_NAME := Smart 9
 PRODUCT_SYSTEM_DEVICE := X6532
@@ -30,7 +30,7 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
     BuildFingerprint=Infinix/X6532-OP/Infinix-X6532:14/UP1A.231005.007/240820V2071:user/release-keys \
     SystemModel=$(PRODUCT_SYSTEM_DEVICE) \
     SystemName=$(PRODUCT_SYSTEM_NAME) \
-    ProductModel=$(PRODUCT_SYSTEM_DEVICE) \
+    ProductModel="$(PRODUCT_MODEL)" \
     DeviceProduct=$(PRODUCT_SYSTEM_NAME)
 
 PRODUCT_PACKAGES += apns-conf.X6532
